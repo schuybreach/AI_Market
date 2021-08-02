@@ -13,4 +13,4 @@ A crowd simulation study.
 
 
 
-Created with Unity / C# / Maya / Photoshop
+Created with Unity / C# / Maya / Photoshop.
