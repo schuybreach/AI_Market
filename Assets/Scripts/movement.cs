@@ -17,7 +17,7 @@ using UnityEngine;
 
 
 
-public class movement : MonoBehaviour
+public class Movement : MonoBehaviour
 {
 
     public float speed = 20.0f;
@@ -37,11 +37,18 @@ public class movement : MonoBehaviour
     float poiPosY = 0f;
     float poiPosZ = 0f;
 
+    public float yHeight;
+
     float floatingHeight = 1f;
 
-    Vector3 personPos = new Vector3(0f, 13.5f, 0f);
+    //Vector3 personPos = new Vector3(0f, 13.5f, 0f);
+    //float personPosX = 0f;
+    //float personPosY = 13.5f;
+    //float personPosZ = 0f;
+
+    Vector3 personPos = new Vector3(0f, 0f, 0f);
     float personPosX = 0f;
-    float personPosY = 13.5f;
+    float personPosY = 0f;
     float personPosZ = 0f;
 
 
@@ -54,6 +61,9 @@ public class movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.Find("Eyes-Angry-FBX").gameObject.SetActive(false);
+        transform.Find("Eyes-Happy-FBX").gameObject.SetActive(false);
+        transform.Find("Eyes-Nuetral-FBX").gameObject.SetActive(true);
 
         poi = GameObject.FindGameObjectsWithTag("stall");
 
@@ -94,6 +104,9 @@ public class movement : MonoBehaviour
 
         if (transform.position == poiPosition)
         {
+            transform.Find("Eyes-Nuetral-FBX").gameObject.SetActive(false);
+            transform.Find("Eyes-Angry-FBX").gameObject.SetActive(false);
+            transform.Find("Eyes-Happy-FBX").gameObject.SetActive(true);
             RandomNumber();
             GetPoiPos();
         }
@@ -104,7 +117,7 @@ public class movement : MonoBehaviour
     void RandomNumber()
     {
 
-        randomNumber = Random.Range(0, stallCount-1);
+        randomNumber = Random.Range(0, stallCount);
 
         //Debug.Log("stallCount: " + stallCount + " | randomNumber: " + randomNumber);
 
@@ -115,7 +128,9 @@ public class movement : MonoBehaviour
         //personPos = transform.position;
 
         personPosX = transform.position.x;
-        personPosY = 13.5f; //transform.position.y;
+        //personPosY = 13.5f; //transform.position.y;
+        //personPosY = transform.position.y;
+        personPosY = yHeight;
         personPosZ = transform.position.z;
 
         personPos = new Vector3(personPosX, personPosY, personPosZ);
@@ -126,7 +141,9 @@ public class movement : MonoBehaviour
     {
 
         poiPosX = poi[randomNumber].transform.position.x;
-        poiPosY = 13.5f; //poi[randomNumber].transform.position.y;
+        //poiPosY = 13.5f; //poi[randomNumber].transform.position.y;
+        //poiPosY = poi[randomNumber].transform.position.y;
+        poiPosY = yHeight;
         poiPosZ = poi[randomNumber].transform.position.z;
 
         poiPosition = new Vector3(poiPosX, poiPosY, poiPosZ);

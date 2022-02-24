@@ -6,6 +6,7 @@ TagManager:
   tags:
   - stall
   - ground
+  - person
   layers:
   - Default
   - TransparentFX
