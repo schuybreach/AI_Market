@@ -1,6 +1,6 @@
 SchuyTyr
 Schuyler Meyer
-(c) 2021
+(c) 2021 - 2022
 
 -----------------
 
@@ -10,6 +10,8 @@ Schuyler Meyer
 
 
 A crowd simulation study.
+
+This is a work in progress.
 
 
 
